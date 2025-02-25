@@ -31,5 +31,12 @@ pipeline {
                 }
             }
         }
+        stage('Deploy using Ansible') {
+            steps {
+                sh '''
+                    ansible-playbook -i hosts.ini deploy.yml
+                '''
+            }
+        }
     }
 }
