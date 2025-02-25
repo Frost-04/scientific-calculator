@@ -18,9 +18,11 @@ pipeline {
         }
         stage('Build & Test') {
             steps {
-                sh 'mvn clean install'
+                sh 'mvn clean test'
+                sh 'mvn package'
             }
         }
+
         stage('Docker Build & Push') {
             steps {
                 script {
