@@ -1,0 +1,19 @@
+- hosts: local
+  tasks:
+    - name: Ensure Docker is installed
+      apt:
+        name: docker.io
+        state: present
+      become: true
+
+    - name: Pull Docker Image
+      docker_image:
+        name: gv2002/scientific-calculator
+        source: pull
+
+    - name: Run Calculator Container
+      docker_container:
+        name: scientific-calculator
+        image: gv2002/scientific-calculator:latest
+        state: started
+        restart_policy: always
