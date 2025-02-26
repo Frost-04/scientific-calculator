@@ -33,11 +33,14 @@ pipeline {
                 }
             }
         }
-        stage('Deploy using Ansible') {
+        stage('Run Ansible Playbook') {
             steps {
-                sh '''
-                    ansible-playbook -i hosts.ini deploy.yml
-                '''
+                script {
+                    ansiblePlaybook(
+                        playbook: 'deploy.yml',
+                        inventory: 'inventory'
+                    )
+                }
             }
         }
     }
