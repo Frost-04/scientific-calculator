@@ -35,11 +35,17 @@ pipeline {
         }
         stage('Run Ansible Playbook') {
             steps {
-                script {
-                    ansiblePlaybook(
-                        playbook: 'deploy.yml',
-                        inventory: 'inventory'
-                    )
+                withCredentials([usernamePassword(credentialsId: 'ansible_ssh', usernameVariable: 'ANSIBLE_USER', passwordVariable: 'ANSIBLE_PASS')]) {
+                    script {
+                        ansiblePlaybook(
+                            playbook: 'deploy.yml',
+                            inventory: 'inventory',
+                            extraVars: [
+                                ansible_user: "${ANSIBLE_USER}",
+                                ansible_ssh_pass: "${ANSIBLE_PASS}"
+                            ]
+                        )
+                    }
                 }
             }
         }
