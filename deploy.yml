@@ -1,10 +1,9 @@
 - hosts: local
   tasks:
-    - name: Ensure Docker is installed
-      apt:
-        name: docker.io
+    - name: Ensure Docker SDK for Python is installed
+      pip:
+        name: docker
         state: present
-      become: true
 
     - name: Pull Docker Image
       docker_image:
