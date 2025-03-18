@@ -14,6 +14,6 @@
     - name: Run Calculator Container
       docker_container:
         name: scientific-calculator
-        image: gv2002/scientific-calculator:latest
+        image: "gv2002/scientific-calculator:latest"
         state: started
         restart_policy: always
