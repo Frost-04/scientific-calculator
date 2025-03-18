@@ -42,11 +42,13 @@ pipeline {
                             inventory: 'inventory',
                             extraVars: [
                                 ansible_user: "${ANSIBLE_USER}",
-                                ansible_ssh_pass: "${ANSIBLE_PASS}"
+                                ansible_ssh_pass: "${ANSIBLE_PASS}",
+                                ansible_become_pass: "${ANSIBLE_PASS}"
                             ]
                         )
                     }
                 }
+
             }
         }
     }
