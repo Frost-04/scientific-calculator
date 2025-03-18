@@ -12,8 +12,5 @@
         source: pull
 
     - name: Run Calculator Container
-      docker_container:
-        name: scientific-calculator
-        image: "gv2002/scientific-calculator:latest"
-        state: started
-        restart_policy: always
+      name: scientific-calculator
+      shell: docker run -it -d --name sc-calculator gv2002/scientific-calculator
