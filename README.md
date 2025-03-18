@@ -1,1 +1,1 @@
-Java Based Scientific calculator, in CI/CD pipeline. 
+Java Based Scientific calculator, in CI/CD pipeline.
