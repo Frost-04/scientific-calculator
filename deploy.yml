@@ -12,5 +12,4 @@
         source: pull
 
     - name: Run Calculator Container
-      name: scientific-calculator
       shell: docker run -it -d --name sc-calculator gv2002/scientific-calculator
