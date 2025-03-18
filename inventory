@@ -1,4 +1,2 @@
 [local]
-localhost
-ansible_connection=ssh
-ansible_user=gvubuntu
+localhost ansible_connection=ssh ansible_user=gvubuntu
